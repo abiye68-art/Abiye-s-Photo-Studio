@@ -39,9 +39,9 @@ export default function App() {
       const result = await processImage(base64, mode, studioPrompt);
       setProcessedImage(result);
       setStep(3);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setError("Something went wrong while processing your image. Please try again.");
+      setError(err.message || "Something went wrong while processing your image. Please try again.");
     } finally {
       setIsProcessing(false);
     }
@@ -234,7 +234,7 @@ export default function App() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-100 text-center text-sm text-slate-400">
-          © 2026 Abiye's Photo Studio App. All rights reserved.
+          © 2026 Abiye's Photo Studio App. All rights reserved. <span className="ml-2 opacity-50">v2.0.1</span>
         </div>
       </footer>
     </div>
